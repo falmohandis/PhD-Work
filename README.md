@@ -1,6 +1,5 @@
 # Artificial Intelligence and Advanced Modeling Techniques for Optimizing Resuscitation Strategies in Hemorrhagic Shock
 
-*PhD Dissertation Repository – Fahim Mobin*
 
 ## 🧠 Overview
 
