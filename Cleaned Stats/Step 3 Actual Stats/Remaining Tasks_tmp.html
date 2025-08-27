@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Remaining Tasks.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="phd-thesis-task-tracker">PhD Thesis Task Tracker</h1>
+<p>This document outlines the remaining analysis, coding, and paper-writing tasks to complete for my dissertation.</p>
+<hr>
+<h2 id="1-r-code-development--clinical-question-analyses">1. R Code Development &amp; Clinical Question Analyses</h2>
+<h3 id="a-hemodynamics--cardiac-function">A. Hemodynamics &amp; Cardiac Function</h3>
+<p><strong>Dataset focus:</strong> Renal artery flow, carotid artery flow, and left ventricular pressure-volume relationship.</p>
+<h4 id="t30-end-of-hemorrhage">T30 (End of Hemorrhage)</h4>
+<ul>
+<li><strong>Question:</strong> How do different hemorrhage levels affect physiological and hemodynamic outcomes?</li>
+<li><strong>Planned Analysis:</strong>
+<ul>
+<li>One-Way ANOVA (or rank-based One-Way ANCOVA)</li>
+<li>Tukey post hoc</li>
+</ul>
+</li>
+</ul>
+<h4 id="t60-end-of-occlusion">T60 (End of Occlusion)</h4>
+<ul>
+<li><strong>Question:</strong> What are the combined effects of hemorrhage level and occlusion type on outcomes?</li>
+<li><strong>Planned Analysis:</strong>
+<ul>
+<li>Two-Way ANOVA (or rank-based Two-Way ANCOVA)</li>
+<li>Tukey post hoc</li>
+</ul>
+</li>
+</ul>
+<h4 id="t60-%E2%86%92-t65-early-blood-transfusion">T60 → T65 (Early Blood Transfusion)</h4>
+<ul>
+<li><strong>Question:</strong> How do hemorrhage, occlusion, and time interact to acutely influence system dynamics?</li>
+<li><strong>Planned Analysis:</strong>
+<ul>
+<li>Linear Mixed Model (or rank-based LME model)</li>
+<li>Post hoc comparisons</li>
+</ul>
+</li>
+</ul>
+<h4 id="t0-%E2%86%92-t240-full-experimental-timeline">T0 → T240 (Full Experimental Timeline)</h4>
+<ul>
+<li><strong>Question:</strong> When and how does the subject return to homeostasis compared to baseline (T0)?</li>
+<li><strong>Planned Analysis:</strong>
+<ul>
+<li>Linear Mixed Model (or rank-based LME model)</li>
+<li>Post hoc comparisons</li>
+<li>Focus on physiological recovery trajectories</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="b-teg-thromboelastography-data">B. TEG (Thromboelastography) Data</h3>
+<h4 id="question-a">Question A</h4>
+<ul>
+<li><strong>Objective:</strong> Do any factors significantly change over time due to hemorrhage or intervention group differences?</li>
+<li><strong>Proposed Analysis:</strong>
+<ul>
+<li>Originally: ANOVA</li>
+<li>Likely better: <strong>Mixed Linear Model</strong> (since repeated measures ANOVA may not handle missing data well)</li>
+<li>Decision: <strong>Confirm with advisor/statistician</strong> whether to use LMM as primary approach.</li>
+</ul>
+</li>
+</ul>
+<h4 id="question-b">Question B</h4>
+<ul>
+<li><strong>Objective:</strong> Are there significant group differences in factors at the end of the study (T240) vs. beginning (T0)?</li>
+<li><strong>Planned Analysis:</strong>
+<ul>
+<li>ANOVA + Mixed Linear Model</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="2-paper-writing--publication-plan">2. Paper Writing &amp; Publication Plan</h2>
+<h3 id="paper-3">Paper 3</h3>
+<p><strong>Title:</strong> <em>Capturing the hemodynamics and physiologic response to varying degrees of hemorrhagic shock and aortic occlusion – A first step towards developing a mathematical framework for acute transient cardiovascular modeling</em></p>
+<ul>
+<li>✅ Introduction completed</li>
+<li>✅ Methods completed</li>
+<li>⚡ Results partially completed
+<ul>
+<li>Waiting on R-based analyses above (esp. ANOVA &amp; LMM results)</li>
+</ul>
+</li>
+</ul>
+<p><strong>Next Steps:</strong></p>
+<ul>
+<li>Finalize results after coding analyses</li>
+<li>Write discussion &amp; conclusion</li>
+<li>Target journal?</li>
+</ul>
+<hr>
+<h3 id="paper-4">Paper 4</h3>
+<p><strong>Title (tentative):</strong> <em>Development of an AI model to classify hemorrhage rates from arterial pressure waveforms</em></p>
+<ul>
+<li><strong>Data Focus:</strong> Left subclavian pressure &amp; distal aortic pressure</li>
+<li><strong>Next Steps:</strong>
+<ul>
+<li>Define model architecture (start with Random Forest / CNN / LSTM?)</li>
+<li>Preprocess waveform data</li>
+<li>Train + evaluate model</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="paper-5">Paper 5</h3>
+<p><strong>Title (tentative):</strong> <em>Machine learning classification of kidney injury using oxidative stress markers</em></p>
+<ul>
+<li><strong>Marker focus:</strong> 8-Isoprostane</li>
+<li><strong>Next Steps:</strong>
+<ul>
+<li>Gather datasets</li>
+<li>Perform exploratory analysis</li>
+<li>Test classification algorithms (e.g., Random Forest, Logistic Regression, Neural Nets)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="notes--priorities">Notes &amp; Priorities</h2>
+<ul>
+<li><strong>High Priority:</strong> Finish R scripts for clinical questions → directly tied to Paper 3 + Dissertation core.</li>
+<li><strong>Medium Priority:</strong> Drafting Papers 4 and 5 (can continue after graduation if needed).</li>
+<li><strong>Decision Points:</strong>
+<ul>
+<li>Confirm with advisor whether to use <strong>Mixed Linear Models</strong> instead of repeated measures ANOVA for TEG data.</li>
+<li>Decide ranking approach (parametric vs. non-parametric) depending on normality &amp; variance tests.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="further-notes-for-me-to-focus-on">Further Notes for me to focus on</h2>
+<ul>
+<li>Remake the R code so that it is focused on answering all of the research questions in much simpler and more elegant code</li>
+<li><em>Make sure to keep all of the cofactors</em></li>
+<li>I need to eventually talk to Magan or Williams to find out about the hetastarch</li>
+<li>Try to run all of the codes from one document...?</li>
+</ul>
+
+</body>
+</html>
