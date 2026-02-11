@@ -1,0 +1,21 @@
+# Mac
+.DS_Store
+
+# Large raw data
+*.zip
+*.xlsx
+*.xls
+*.pptx
+
+# Generated plots
+*.png
+*.html
+
+# Excel temp files
+~$*.xlsx
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+
+
